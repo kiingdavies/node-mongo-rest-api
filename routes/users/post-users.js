@@ -13,8 +13,9 @@ module.exports = (req, res) => {
         if (err) {
             return res.send("Error in file(s)");
         }
-        // console.log(`name: ${fields.name}`); //A
-        // console.log(`lastName: ${fields.lastName}`); //AA
+        // console.log(`name: ${fields.firtsName}`); //Segun
+        // console.log(`lastName: ${fields.lastName}`); //Davies
+        // console.log(`lastName: ${fields.number}`); // 0803.....
         // console.log(`picture: ${files.picture.path}`); //path to the image to upload
         detect.fromFile(files.picture.path, (err, result) => {
             // console.log(result.ext); //gives us the image extension
@@ -36,8 +37,9 @@ module.exports = (req, res) => {
 
                 // this part below saves the user data to mongodb
                 const user = {
-                    name: fields.name,
+                    firstName: fields.firtsName,
                     lastName: fields.lastName,
+                    number: fields.number,
                     picture: pictureName,
                 };
                 try {
