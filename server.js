@@ -18,8 +18,12 @@ mongoClient.connect(mongoUrl, { useUnifiedTopology: true }, (err, res) => { //co
 const rPostUsers = require(path.join(__dirname, "routes", "users", "post-users.js"));
 app.post('/users', rPostUsers);
 
+
+//Get all users route
+const rGetUsers = require(path.join(__dirname, "routes", "users", "get-users.js"));
+app.get('/users', rGetUsers);
+
 /*
-GET     users               get all users
 GET     users/1             get user with id of 1
 DELETE  users            delete all users
 DELETE  users/1          delete user id 1
