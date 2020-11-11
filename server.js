@@ -3,6 +3,10 @@ const app = express();
 const path = require('path');
 const mongoClient = require("mongodb").MongoClient;
 
+// const routes = require('express').Router();
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json()
+
 // ###################################
 const mongoUrl = "mongodb://localhost:27017/";//connect to mongo server which is default 27017
 global.db = ''; //global.db makes the db accessable globally
@@ -18,13 +22,16 @@ mongoClient.connect(mongoUrl, { useUnifiedTopology: true }, (err, res) => { //co
 const rPostUsers = require(path.join(__dirname, "routes", "users", "post-users.js"));
 app.post('/users', rPostUsers);
 
+//Get one user by id route
+const rGetUser = require(path.join(__dirname, "routes", "users", "get-user.js"));
+app.get('/users/:id', jsonParser, rGetUser);
 
 //Get all users route
 const rGetUsers = require(path.join(__dirname, "routes", "users", "get-users.js"));
 app.get('/users', rGetUsers);
 
 /*
-GET     users/1             get user with id of 1
+
 DELETE  users            delete all users
 DELETE  users/1          delete user id 1
 PATCH   users/1           update user id 1
