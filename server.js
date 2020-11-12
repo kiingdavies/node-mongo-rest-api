@@ -19,6 +19,7 @@ mongoClient.connect(mongoUrl, { useUnifiedTopology: true }, (err, res) => { //co
 // ###################################
 //variable for post-users (__dirname is pointing to the current file ie server.js)
 // const rPostUsers = require(__dirname+"/routes/users/post-users.js");
+//Post a new user
 const rPostUsers = require(path.join(__dirname, "routes", "users", "post-users.js"));
 app.post('/users', rPostUsers);
 
@@ -41,8 +42,6 @@ app.delete('/users/:id', jsonParser, rDeleteUser);
 /*
 DELETE  users/1          delete user id 1
 DELETE  users            delete all users
-
-
 */
 app.listen(80, err => {
     if (err) { console.log("Server error"); return }
