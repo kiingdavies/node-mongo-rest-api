@@ -1,7 +1,7 @@
 const ObjectID = require("mongodb").ObjectID;
 
 module.exports = (req, res) => {
-    // res.send('You have reached the get all users route it works');
+    // res.send('You have reached the get a user by id route it works');
 
     //GET     users/1  get user with id of 1
     //Find one user in the company collection:

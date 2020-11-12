@@ -26,15 +26,19 @@ app.post('/users', rPostUsers);
 const rGetUser = require(path.join(__dirname, "routes", "users", "get-user.js"));
 app.get('/users/:id', jsonParser, rGetUser);
 
+//update one user by id route
+const rUpdateUser = require(path.join(__dirname, "routes", "users", "update-user.js"));
+app.patch('/users/:id', jsonParser, rUpdateUser);
+
 //Get all users route
 const rGetUsers = require(path.join(__dirname, "routes", "users", "get-users.js"));
 app.get('/users', rGetUsers);
 
 /*
-
-DELETE  users            delete all users
 DELETE  users/1          delete user id 1
-PATCH   users/1           update user id 1
+DELETE  users            delete all users
+
+
 */
 app.listen(80, err => {
     if (err) { console.log("Server error"); return }
