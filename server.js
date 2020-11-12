@@ -34,6 +34,10 @@ app.patch('/users/:id', jsonParser, rUpdateUser);
 const rGetUsers = require(path.join(__dirname, "routes", "users", "get-users.js"));
 app.get('/users', rGetUsers);
 
+//Delete one user by id route
+const rDeleteUser = require(path.join(__dirname, "routes", "users", "delete-user.js"));
+app.delete('/users/:id', jsonParser, rDeleteUser);
+
 /*
 DELETE  users/1          delete user id 1
 DELETE  users            delete all users
